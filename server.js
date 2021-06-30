@@ -6,9 +6,11 @@ require('./data/mongddb')
 
 const app = express();
 
-app.get('/',(req,res)=>{
-    res.send("greeting from Earth");
-});
+app.use(express.json());
+
+
+const subRouter = require('./routes/subs');
+app.use('/subs', subRouter);
 
 const PORT = process.env.PORT || 5000;
 

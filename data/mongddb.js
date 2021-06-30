@@ -1,15 +1,10 @@
+
 const mongoose = require('mongoose');
 
-const url = 'mongodb://localhost:27017';
+require('dotenv').config()
 
-mongoose .connect(url,{ useNewUrlParser: true ,useUnifiedTopology: true })
+mongoose.connect(process.env.DATABASE_URL,{ useNewUrlParser: true ,useUnifiedTopology: true });
 
-
-mongoose.connection.once("open",()=>{
-    console.log("connected");
-    
-
-}).on("error",(error)=>{
-    console.log(error);
-    
-});
+const db = mongoose.connection
+db.on('error', (error)=>console.log(error));
+db.once('open',()=> console.log("you are on "));
