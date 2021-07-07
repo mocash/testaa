@@ -1,14 +1,18 @@
 const express = require('express');
 
 const router = express.Router();
-
+const Animal = require('../models/animals')
 
 
 
 
 // Getting all
 router.get('/',(req,res)=>{
-    res.send('Test 1')
+   const findAl = Animal.find()
+  .sort({ date: -1 })
+  .then(items => console.log(items));
+
+    res.send(findAl)
 })
 // Getting one
 

@@ -10,9 +10,7 @@ app.use(express.json());
 
 
 
-Animal.find()
-  .sort({ date: -1 })
-  .then(items => console.log(items));
+
 
 const subRouter = require('./routes/subs');
 app.use('/subs', subRouter);
