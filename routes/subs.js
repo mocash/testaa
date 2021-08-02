@@ -1,8 +1,9 @@
 const express = require('express');
 
+
 const router = express.Router();
 const Animal = require('../models/animals')
-
+// const Sub = require('../config/config');
 
 
 
@@ -13,7 +14,15 @@ router.get('/',(req,res)=>{
   .then(items => console.log(items));
 
     res.send(findAl)
+});
+router.get('/green',(req,res)=>{
+  res.json({
+    "Hello":["Jon", "Smith"]
+  })
 })
+
+
+
 // Getting one
 
 // router.get('/:id',(req,res)=>{
